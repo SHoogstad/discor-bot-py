@@ -5,8 +5,9 @@ services:
     build: .
     environment:
       DISCORD_TOKEN: your_bot_token_here
-      ROLE_NAME: MyRole
-      EMOJI: ✅
+      ROLE_NAME: your_role_here
+      EMOJI_NAME: emoij_name
+      EMOIJ_ID: id_here
       CHANNEL_ID: 123456789012345678
       REACTION_MESSAGE_TEXT: "React with ✅ to get MyRole!"
     restart: unless-stopped

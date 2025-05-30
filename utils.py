@@ -19,7 +19,7 @@ async def send_reaction_role_message(bot):
 
 
 def get_member(bot, payload):
-    if str(payload.emoji) != settings["EMOJI"]:
+    if is_correct_emoji(payload):
         return
 
     guild = bot.get_guild(payload.guild_id)
@@ -29,3 +29,9 @@ def get_member(bot, payload):
     role = get(guild.roles, name=settings["ROLE_NAME"])
     member = guild.get_member(payload.user_id)
     return member, role
+
+def is_correct_emoji(payload):
+    return (
+        payload.emoji.name == settings["EMOJI_NAME"] and
+        str(payload.emoji.id) == settings["EMOJI_ID"]
+    )
