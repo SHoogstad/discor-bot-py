@@ -1,0 +1,22 @@
+version: "1"
+name: discord-role-bot
+repository: hoogstaddie/yona
+description: Discord bot assigning roles based on reactions
+registry: docker.io
+environment:
+  - name: DISCORD_TOKEN
+    description: Your Discord bot token
+    default: ""
+    required: true
+  - name: CHANNEL_ID
+    description: Discord channel ID where bot posts message
+    default: ""
+    required: true
+  - name: EMOJI_ROLE_MAP
+    description: Comma-separated emoji_name:emoji_id:role_name list
+    default: "eyes:123456789012345678:Observer"
+    required: true
+  - name: REACTION_MESSAGE_TEXT
+    description: Text message bot sends to channel
+    default: "React to get a role!"
+    required: false
