@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  discord-bot:
+    build: .
+    environment:
+      DISCORD_TOKEN: your_bot_token_here
+      ROLE_NAME: MyRole
+      EMOJI: ✅
+      CHANNEL_ID: 123456789012345678
+      REACTION_MESSAGE_TEXT: "React with ✅ to get MyRole!"
+    restart: unless-stopped
