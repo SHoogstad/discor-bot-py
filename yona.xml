@@ -1,0 +1,67 @@
+<Container>
+  <Name>Yona bot</Name>
+  <Repository>hoogstaddie/yona:latest</Repository>
+  <Registry>docker.io</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/SHoogstad/discor-bot-py</Support>
+  <Project>Yona</Project>
+  <Overview>A Discord bot that assigns roles based on custom emoji reactions.</Overview>
+  <Category>Utility: Chat</Category>
+  <WebUI/>
+  <TemplateVersion>1</TemplateVersion>
+
+  <Environment>
+    <Variable>
+      <Name>DISCORD_TOKEN</Name>
+      <Description>Your Discord bot token</Description>
+      <Default></Default>
+      <Display>Textbox</Display>
+      <Required>true</Required>
+    </Variable>
+    <Variable>
+      <Name>CHANNEL_ID</Name>
+      <Description>Discord channel ID where the bot will send the reaction message</Description>
+      <Default></Default>
+      <Display>Textbox</Display>
+      <Required>true</Required>
+    </Variable>
+    <Variable>
+      <Name>EMOJI_ROLE_MAP</Name>
+      <Description>Comma-separated list: emoji_name:emoji_id:role_name</Description>
+      <Default>eyes:123456789012345678:Observer,flame:234567890123456789:Firestarter</Default>
+      <Display>Textbox</Display>
+      <Required>true</Required>
+    </Variable>
+    <Variable>
+      <Name>REACTION_MESSAGE_TEXT</Name>
+      <Description>Message text that the bot will send to the channel</Description>
+      <Default>React to get a role!</Default>
+      <Display>Textbox</Display>
+      <Required>false</Required>
+    </Variable>
+  </Environment>
+
+  <PostArgs></PostArgs>
+  <User>nobody</User>
+  <Group>users</Group>
+
+  <Config>
+    <Device></Device>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/app/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Config>
+
+  <Networking>
+    <Port>
+      <HostPort>0</HostPort>
+      <ContainerPort>0</ContainerPort>
+      <Protocol>tcp</Protocol>
+    </Port>
+  </Networking>
+</Container>
