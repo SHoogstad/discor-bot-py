@@ -12,8 +12,8 @@ async def send_reaction_role_message(bot):
         print("Channel not found")
         return
 
-    message = await channel.send(settings["REACTION_MESSAGE_TEXT"])
     emoji = f'<:{settings["EMOJI_NAME"]}:{settings["EMOJI_ID"]}>'
+    message_text = settings["REACTION_MESSAGE_TEXT"].format(emoji=emoji)
     await message.add_reaction(emoji)
     reaction_message_id = message.id
     print(f"Sent reaction role message: {message.id}")
