@@ -13,7 +13,8 @@ async def send_reaction_role_message(bot):
         return
 
     message = await channel.send(settings["REACTION_MESSAGE_TEXT"])
-    await message.add_reaction(settings["EMOJI"])
+    emoji = f'<:{settings["EMOJI_NAME"]}:{settings["EMOJI_ID"]}>'
+    await message.add_reaction(emoji)
     reaction_message_id = message.id
     print(f"Sent reaction role message: {message.id}")
 
