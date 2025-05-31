@@ -1,3 +1,4 @@
+from discord.utils import get
 from config import settings
 
 async def send_reaction_role_message(bot):
@@ -24,3 +25,21 @@ async def send_reaction_role_message(bot):
             print(f"✅ Added emoji string to message {message.id}")
         except Exception as e:
             print(f"❌ Failed to react with emoji: {e}")
+
+def get_member(bot, payload):
+    if is_correct_emoji(payload):
+        return
+
+    guild = bot.get_guild(payload.guild_id)
+    if not guild:
+        return
+
+    role = get(guild.roles, name=settings["ROLE_NAME"])
+    member = guild.get_member(payload.user_id)
+    return member, role
+
+def is_correct_emoji(payload):
+    return (
+        payload.emoji.name == settings["EMOJI_NAME"] and
+        str(payload.emoji.id) == settings["EMOJI_ID"]
+    )
