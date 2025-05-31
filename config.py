@@ -6,5 +6,5 @@ settings = {
     "EMOJI_NAME": os.getenv("EMOJI", "✅"),
     "EMOJI_ID": os.getenv("EMOIJ_ID"),
     "CHANNEL_ID": int(os.getenv("CHANNEL_ID", "123456789012345678")),
-    "REACTION_MESSAGE_TEXT": os.getenv("REACTION_MESSAGE_TEXT", "React with ✅ to get the role!")
+    "MESSAGE_ID": int(os.getenv("MESSAGE_ID", "123456789012345678")),
 }
